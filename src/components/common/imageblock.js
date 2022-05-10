@@ -11,14 +11,14 @@ export default class ImageBlock extends Component {
     }
     render() {
         
-        if(this.props.teamname==='CSK')
-        {
-            this.mystyle.borderColor="#D3961F"
-        }
-        if(this.props.teamname==='RCB')
-        {
-            this.mystyle.borderColor="#E2170A"
-        }
+        // if(this.props.teamname==='CSK')
+        // {
+        //     this.mystyle.borderColor="#D3961F"
+        // }
+        // if(this.props.teamname==='RCB')
+        // {
+        //     this.mystyle.borderColor="#E2170A"
+        // }
         return (
             <div className="card " style={this.mystyle}>
                 
