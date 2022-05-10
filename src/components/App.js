@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import Homepage from "./homepage";
+import Homepage from "./HomePage";
 import Instructions from "./instructions"
-import About from "./about"
+import About from "./About"
+import Navbar from "./common/navbar";
 import Leaderboard from "./leaderboard"
-import Login from "./login"
-import Register from "./register"
+import Login from "./Login"
+import Register from "./Register"
 import Chooseplayer from "./playerchoose"
 import Stats from "./stats"
+import { ABOUT, LEADERBOARD, SELECT_TEAM,HOME, CONTACT } from "../constants/routes";
 import { BrowserRouter, Switch, Route, Link, Redirect} from "react-router-dom";
+import Contacts from "./Contacts";
 export default class App extends Component {
     constructor(props) {
         super(props)
@@ -16,21 +19,22 @@ export default class App extends Component {
     }
     render() {
         return(
-        <BrowserRouter>
-           
+        <div className="bg-gray-900">
+<BrowserRouter>
+           <Navbar></Navbar>
             <Switch>
-                <Route exact path="/" ><h1>{this.props.name} first React APP</h1></Route>
-                <Route path="/homepage" component={Homepage} />
-                <Route path="/instructions" component={Instructions} />
-                <Route path="/about" component={About} />
-                <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} />
-                <Route path="/leaderboard" component={Leaderboard} />
-                <Route path="/about" component={About} />
-                <Route path="/chooseplayers" component={Chooseplayer} />
-                <Route path="/stats" component={Stats} />
-            </Switch>
+            <Route exact path={HOME} component={Homepage} />
+                <Route exact path="/instructions" component={Instructions} />
+                <Route exact  path="/login" component={Login} />
+                <Route exact  path="/register" component={Register} />
+                <Route exact  path={LEADERBOARD} component={Leaderboard} />
+                <Route exact  path={ABOUT} component={About} />
+                <Route exact path={SELECT_TEAM} component={Chooseplayer} />
+                <Route exact path="/stats" component={Stats} />
+                <Route exact path={CONTACT} component={Contacts} />
+                </Switch>
         </BrowserRouter>
+        </div>
         );
     }
 }

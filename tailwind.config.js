@@ -1,11 +1,12 @@
 module.exports = {
     content: [
-      "./src/components/common/navbar.js",
-      "./src/components/playerchoose.js",
-      "./src/components/chooseplayercomponents/table1.js"
+      "./src/**/*.{html,js}"
     ],
     theme: {
       extend: {
+        fontFamily:{
+          Rajdhani:["Rajdhani"]
+        },
         colors: {
           'gradient1': '#4608F6'
         },
