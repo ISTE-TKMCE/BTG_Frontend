@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+nav{
+    border-bottom: 0.2px solid;
+    border-bottom-color: rgba(255,255,255,0.5);
+}
+
+.imagespart>.card>figure{
+    /* margin-left: 10%; */
+    padding: 10%;
+}
