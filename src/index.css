@@ -5,7 +5,9 @@ nav{
     border-bottom: 0.2px solid;
     border-bottom-color: rgba(255,255,255,0.5);
 }
-
+.table1>table, th, td {
+    border: 1px solid;
+  }
 .imagespart>.card>figure{
     /* margin-left: 10%; */
     padding: 10%;
