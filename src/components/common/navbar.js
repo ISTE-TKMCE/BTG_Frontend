@@ -5,15 +5,15 @@ import { ABOUT, CONTACT, HOME, LEADERBOARD } from "../../constants/routes";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 style={{fontFamily: 'Rajdhani'}}">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
+    <div className="z-20">
+        <div className="max-w-7xl z-20 mx-auto px-4 sm:px-6 lg:px-8 style={{fontFamily: 'Rajdhani'}}">
+          <div className="flex z-20 items-center justify-between h-16">
+            <div className="flex z-20 items-center ">
               <div className="flex-shrink-0">
               {/* Insert BTG logo here */}
               </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+              <div className="hidden z-20 md:block">
+                <div className="ml-10 flex items-baseline z-20 space-x-4">
                   <Link
                     to={HOME}
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -51,11 +51,11 @@ function Navbar() {
                 </div>
               </div>
             </div>
-            <div className="-mr-2 flex md:hidden">
+            <div className="-mr-2 flex md:hidden z-20">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="bg-gray-900 z-20 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -100,19 +100,20 @@ function Navbar() {
 
         <Transition
           show={isOpen}
-          enter="transition ease-out duration-100 transform"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition ease-in duration-75 transform"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
+          enter="transition ease-out duration-100 transform z-20"
+          enterFrom="opacity-0 scale-95 z-20"
+          enterTo="opacity-100 scale-100 z-20"
+          leave="transition ease-in duration-75 transform z-20"
+          leaveFrom="opacity-100 scale-100 z-20"
+          leaveTo="opacity-0 scale-95 z-20"
+          className="z-20"
         >
           {(ref) => (
-            <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="overflow-x-auto scrollDivH z-20 md:hidden" id="mobile-menu">
+              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3 z-20">
               <Link
                     to={HOME}
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Home
                   </Link>
