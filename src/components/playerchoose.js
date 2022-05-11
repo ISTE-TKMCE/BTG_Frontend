@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
 import kohliImage from '../assets/images/kohli_rcb.png'
 import DhoniImage from '../assets/images/jadeja_csk.png'
-
-
-
-import Navbar from "./common/navbar";
 import ImageBlock from "./common/imageblock"
 import Table1 from "./chooseplayercomponents/table1"
 export default class Playerchoose extends Component {
@@ -58,7 +53,7 @@ export default class Playerchoose extends Component {
 
     render() {
         return (
-            <div className="bg-gradient1 bg-cover" style={{height:"100%", background: "linear-gradient(to right, #330708, #330708, #0E070E, #070E20, #050813)"}}>
+            <div className="p-2 bg-gradient1 bg-cover" style={{height:"100%", background: "linear-gradient(to right, #330708, #330708, #0E070E, #070E20, #050813)"}}>
                 
                 
                 <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={DhoniImage} bordercolor={"#D3961F"} teamname={"CSK"}/></div>
