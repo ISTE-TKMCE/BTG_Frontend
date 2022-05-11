@@ -25,7 +25,7 @@ export default class Table1 extends Component {
                                 <td>{item.name}</td>
                                 <td>{item.team}</td>
                                 <td>{item.credits}</td>
-                                <td><button onClick={()=>{this.props.selected?this.props.handledecrement(item,index):this.props.handleincrement(item,index)}} type="button" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style={{marginLeft:"20%"}}>{this.props.selected?"-":"+"}</button></td>
+                                <td><button disabled={this.props.credits<item.credits?true:false} onClick={()=>{this.props.selected?this.props.handleRemoveFromSelected(item,index):this.props.handleAddToSelected(item,index)}} className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style={{marginLeft:"20%"}}>{this.props.selected?"-":"+"}</button></td>
                                 </tr>
                             );
                             })
