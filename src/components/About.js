@@ -1,33 +1,31 @@
 import React from 'react';
 import './App.css';
-import TechnicalImage from "E:\\ISTE\\btg\\btgx\\src\\ab.jpg";
-const About = () => {
-  return (
-    <div>About</div>
-  )
-}
+import TechnicalImage from "../assets/images/playstyle-linear-overlay.png";
+// const About = () => {
+//   return (
+//     <div>About</div>
+//   )
+// }
 
-const divStyle = {
+// const divStyle = {
   
-  backgroundImage: `url(${TechnicalImage})`,
-  backgroundSize: 'cover'  
-};
+//   backgroundImage: `url(${TechnicalImage})`,
+//   backgroundSize: 'cover'  
+// };
 
 
-function App() {
+function About() {
   return (
-    <div style={{
-      backgroundImage: `url("E:\\ISTE\btg\btgx\\src\\ab.jpg")` 
-    }}>
+    <div>
 
       <header className="App-header">
         <p>
           njcnfsv shv v sbvhnv vhnvjbvdcjsvndc dcvgdscbdvcgd
         </p>
       </header>
+      <img src={TechnicalImage} className="fixed pointer-events-none top-0 w-full min-h-full object-cover z-0" alt=" "/>
     </div>
   );
 }
 
-export default App;
 export default About

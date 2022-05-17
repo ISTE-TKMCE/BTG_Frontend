@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import bg from "../assets/images/playstyle-linear-overlay.png";
+import Navbar from './common/navbar';
 const UserRow = (props)=>{
   return(
     <div className='flex scrollDivH flex-row overflow-x-auto md:items-center w-full my-2 border-b md:border-none py-5 md:py-2'>
@@ -61,6 +62,11 @@ const Leaderboard = () => {
     setLeaderBoard(details);
   },[]);
   return (
+    <div>
+    <div className="z-40 w-full">
+                
+                <Navbar />
+            </div>
     <div className='w-full flex justify-center min-h-screen'>
       <div className='flex flex-col w-11/12 mt-5 z-10'>
         <div className='flex backdrop-blur-sm flex-row items-center justify-between mb-5 text-xl bg-[#EFEEEE14] font-bold rounded-xl py-5 px-5'>
@@ -78,6 +84,7 @@ const Leaderboard = () => {
         </div>
       </div>
       <img src={bg} className="fixed pointer-events-none top-0 w-full min-h-full object-cover z-0" alt=" "/>
+    </div>
     </div>
   )
 }

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+
 import { ABOUT, CONTACT, HOME, LEADERBOARD } from "../../constants/routes";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="z-20">
+    <div className="cc z-20 bg-grey-900">
         <div className="max-w-7xl z-20 mx-auto px-4 sm:px-6 lg:px-8 style={{fontFamily: 'Rajdhani'}}">
           <div className="flex z-20 items-center justify-between h-16">
             <div className="flex z-20 items-center ">
