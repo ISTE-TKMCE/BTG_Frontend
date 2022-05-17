@@ -1,23 +1,16 @@
 import React from 'react';
 import './App.css';
+import Navbar from './common/navbar';
 import TechnicalImage from "../assets/images/playstyle-linear-overlay.png";
-// const About = () => {
-//   return (
-//     <div>About</div>
-//   )
-// }
-
-// const divStyle = {
-  
-//   backgroundImage: `url(${TechnicalImage})`,
-//   backgroundSize: 'cover'  
-// };
 
 
 function About() {
   return (
     <div>
-
+      <div className="z-40 w-full">
+                
+                <Navbar />
+            </div>
       <header className="App-header">
         <p>
           njcnfsv shv v sbvhnv vhnvjbvdcjsvndc dcvgdscbdvcgd
