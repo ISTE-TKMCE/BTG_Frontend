@@ -8,9 +8,9 @@ import {
 const Block1 = () => {
   return (
     <div className="relative w-full h-screen pb-10 pt-36">
-    <div className="md:block">
+    {/* <div className="md:block">
         <img className="absolute bg-cover bg-center w-full h-full inset-0" src={bg1} alt />
-    </div>
+    </div> */}
     <div className="relative px-4 xl:px-0 container mx-auto md:flex items-center gap-8">
         <div className="text-color w-full md:w-1/3 pt-16 lg:pt-32 xl:pt-12" >
         <img src={BTG}></img>
