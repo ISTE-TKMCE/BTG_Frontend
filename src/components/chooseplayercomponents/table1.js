@@ -6,7 +6,7 @@ export default class Table1 extends Component {
         return(
             <div className="table1 my-5">
                 <div class="overflow-x-auto">
-                    <table className="table-compact w-full">
+                    <table className="table-normal">
                        
                         <thead>
                         <tr>
@@ -25,7 +25,7 @@ export default class Table1 extends Component {
                                 <td>{item.name}</td>
                                 <td>{item.team}</td>
                                 <td>{item.credits}</td>
-                                <td><button disabled={this.props.credits<item.credits?true:false} onClick={()=>{this.props.selected?this.props.handleRemoveFromSelected(item,index):this.props.handleAddToSelected(item,index)}} className={this.props.color} style={{marginLeft:"20%"}}>{this.props.selected?"-":"+"}</button></td>
+                                <td><button disabled={this.props.credits<item.credits?true:false} onClick={()=>{this.props.selected?this.props.handleRemoveFromSelected(item,index):this.props.handleAddToSelected(item,index)}} className={this.props.color} style={{marginLeft:"20 %"}}>{this.props.selected?"-":"+"}</button></td>
                                 </tr>
                             );
                             })
