@@ -15,6 +15,7 @@ export default class Playerchoose extends Component {
             yess:['btn-active','','',''],
             active:'WKtable',
             sactive:'WKstable',
+            error:'',
             credits:100,
             selectedCredits:0,
             teamData: [
@@ -241,9 +242,35 @@ export default class Playerchoose extends Component {
         ...prev.selectedARData.splice(index,1)
         }))
     }
-    showSelected=()=>{
-      console.log(this.state.selectedARData)
+    handleError=()=>{
+      if(this.state.selectedWKData.length<1||this.state.selectedWKData.length>4){
+        this.setState({
+          error:'There should be atleast 1 and maximum of 4 WicketKeepers in your team'
+        })
+      }
+      else if(this.state.selectedBatData.length<3||this.state.selectedBatData.length>6){
+        this.setState({
+          error:'There should be atleast 3 and maximum of 6 Batsmen in your team'
+        })
+      }
+      else if(this.state.selectedBowData.length<3||this.state.selectedBowData.length>6){
+        this.setState({
+          error:'There should be atleast 3 and maximum of 6 Bowlers in your team'
+        })
+      }
+      else if(this.state.selectedARData.length<1||this.state.selectedARData.length>4){
+        this.setState({
+          error:'There should be atleast 1 and maximum of 4 All-Rounders in your team'
+        })
+      }
+      else{
+        this.setState({
+          error:''
+        })
+        console.log(this.state.selectedWKData.length)
+      }
     }
+
     render() {
         return (
          
@@ -259,7 +286,7 @@ export default class Playerchoose extends Component {
                 <div className="flex items-center justify-center font-bold">VS</div>
                 <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={kohliImage} bordercolor={"#E2170A"} teamname={"RCB"}/></div>
                 <div className=" flex items-center justify-center  mt-10 mb-10 mx-3">
-                <span className="badge p-2 text-center" style={{background:'linear-gradient(to right, #FB1935, #3404F8)', height:'100%'}}>First two players you choose will be your Captain and Vice-Captain</span>
+                <span className="badge text-center" style={{background:'linear-gradient(to right, #FB1935, #3404F8)', height:'100%'}}>First two players you choose will be your Captain and Vice-Captain</span>
                 </div>
                 <p className="ml-2 my-3 text-white">Remaining credits: {this.state.credits}</p>
                 <p className="ml-2 my-3 text-white">Selected credits: {this.state.selectedCredits}</p>
@@ -335,9 +362,19 @@ export default class Playerchoose extends Component {
                   this.state.sactive=== "ARstable" && <Table1 handleRemoveFromSelected={this.handleRemoveARFromSelected} selected data={this.state.selectedARData} color="btn btn-error"/>
                 }
                 </div>
-                <div className="flex items-center justify-center">
-                  <button type="button" className="btn btn-accent" onClick={this.showSelected}>SAVE</button>
+                {  this.state.error!=='' && <div>
+                  <div class="alert alert-error shadow-lg my-2 mb-4">
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span>{this.state.error}</span>
+                  </div>
                 </div>
+                </div>
+                }
+                <div className="flex items-center justify-center">
+                  <button type="button" className="btn btn-accent" onClick={this.handleError}>SAVE</button>
+                </div>
+                
             </div>
         
         )
