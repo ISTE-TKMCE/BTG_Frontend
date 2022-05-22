@@ -1,15 +1,15 @@
 import React from 'react'
 import img from "../assets/images/img.svg";
 import inst from '../assets/images/inst.svg'
-import bg1 from '../assets/images/bg1.svg'
+import bg1 from '../assets/images/kohlibg.png'
 
 
 const Block2 = () => {
   return (
     <div id='instruction'>
-
+        
     
-    <div className=" lg:items-left">
+    <div className=" lg:items-left" style={{zIndex:'2'}}>
             <img class="lg:ml-10 lg:max-w-2xl" src={inst} ></img>
     </div>  
 
@@ -19,7 +19,7 @@ const Block2 = () => {
     
         <div className="md:py-20 xl:w-1/2 sm:w-1/2 lg:mr-20 md:mr-6 flex flex-col md:items-end items-center xl:mr-28">
        
-        <div className="flex flex-col text-left">
+        <div className="flex flex-col text-left" >
             
            
                 <p className="sm:w-96 w-full text-base leading-6 text-center text-white-600">The participant can select the match from the Beat The Game website and must pick 11 players within 100 credits.</p>
