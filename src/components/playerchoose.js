@@ -11,8 +11,8 @@ export default class Playerchoose extends Component {
       
         super(props)
         this.state = {
-            yes:['','','',''],
-            yess:['','','',''],
+            yes:['btn-active','','',''],
+            yess:['btn-active','','',''],
             active:'WKtable',
             sactive:'WKstable',
             credits:100,
@@ -42,7 +42,7 @@ export default class Playerchoose extends Component {
                 
                 name: "Dhoni",
                 team: "CSK",
-                credits: 8.5
+                credits: 98.5
               },
               {
                 name: "Player2",
@@ -112,7 +112,9 @@ export default class Playerchoose extends Component {
             selectedData: [
             ],
             selectedWKData:[],
-            selectedBatData:[]
+            selectedBatData:[],
+            selectedBowData:[],
+            selectedARData:[],
           };
     }
     handleWKTable=()=>{
@@ -127,16 +129,18 @@ export default class Playerchoose extends Component {
         yess:['btn-active','','','']
       })
     }
-    handleBatmansTable=()=>{
-      this.setState({
-        sactive:'Batsmanstable',
-        yess:['','btn-active','','']
-      })
-    }
+   
+    
     handleBatsmanTable=()=>{
       this.setState({
         active:'Batsmantable',
         yes:['','btn-active','','']
+      })
+    }
+    handleBatmansTable=()=>{
+      this.setState({
+        sactive:'Batsmanstable',
+        yess:['','btn-active','','']
       })
     }
     handleBowlerTable=()=>{
@@ -145,10 +149,22 @@ export default class Playerchoose extends Component {
         yes:['','','btn-active','']
       })
     }
+    handleBowlersTable=()=>{
+      this.setState({
+        sactive:'Bowlerstable',
+        yess:['','','btn-active','']
+      })
+    }
     handleAllRounderTable=()=>{
       this.setState({
         active:'AllRoundertable',
         yes:['','','','btn-active']
+      })
+    }
+    handleAllRoundersTable=()=>{
+      this.setState({
+        sactive:'ARstable',
+        yess:['','','','btn-active']
       })
     }
     handleAddWKToSelected= (player,index)=>{
@@ -189,8 +205,44 @@ export default class Playerchoose extends Component {
         ...prev.selectedBatData.splice(index,1)
         }))
     }
+    handleAddBowToSelected= (player,index)=>{
+      this.setState(prev=>({
+      selectedCredits:prev.selectedCredits+player.credits,
+      credits:prev.credits-player.credits,
+      ...prev.Bowlers.splice(index,1),
+      selectedData:[...prev.selectedData,player],
+      selectedBowData:[...prev.selectedBowData,player]
+      }))
+  }
+  handleRemoveBowFromSelected= (player,index)=>{
+    this.setState(prev=>({
+        selectedCredits:prev.selectedCredits-player.credits,
+        credits:prev.credits+player.credits,
+        Bowlers:[...prev.Bowlers,player],
+        ...prev.selectedData.splice(index,1),
+        ...prev.selectedBowData.splice(index,1)
+        }))
+    }
+    handleAddARToSelected= (player,index)=>{
+      this.setState(prev=>({
+      selectedCredits:prev.selectedCredits+player.credits,
+      credits:prev.credits-player.credits,
+      ...prev.AllRounders.splice(index,1),
+      selectedData:[...prev.selectedData,player],
+      selectedARData:[...prev.selectedARData,player]
+      }))
+  }
+  handleRemoveARFromSelected= (player,index)=>{
+    this.setState(prev=>({
+        selectedCredits:prev.selectedCredits-player.credits,
+        credits:prev.credits+player.credits,
+        AllRounders:[...prev.AllRounders,player],
+        ...prev.selectedData.splice(index,1),
+        ...prev.selectedARData.splice(index,1)
+        }))
+    }
     showSelected=()=>{
-      console.log(this.state.selectedData)
+      console.log(this.state.selectedARData)
     }
     render() {
         return (
@@ -233,14 +285,29 @@ export default class Playerchoose extends Component {
                 this.state.active=== "Batsmantable" && <Table1 credits={this.state.credits} handleAddToSelected={this.handleAddBatToSelected}  data={this.state.BatsMan} color="btn btn-accent"/>
                 }
                 {
-                this.state.active=== "Bowlertable" && <Table1 credits={this.state.credits} handleAddToSelected={this.handleAddToSelected}  data={this.state.Bowlers} color="btn btn-accent"/>
+                this.state.active=== "Bowlertable" && <Table1 credits={this.state.credits} handleAddToSelected={this.handleAddBowToSelected}  data={this.state.Bowlers} color="btn btn-accent"/>
                 }
                 {
-                this.state.active=== "AllRoundertable" && <Table1 credits={this.state.credits} handleAddToSelected={this.handleAddToSelected}  data={this.state.AllRounders} color="btn btn-accent"/>
+                this.state.active=== "AllRoundertable" && <Table1 credits={this.state.credits} handleAddToSelected={this.handleAddARToSelected}  data={this.state.AllRounders} color="btn btn-accent"/>
                 }
                 </div>
-                <h2 className="text-white pl-2">Selected Players</h2>
-                <div className="flex justify-center">
+                <h2 className="text-white pl-2">Selected Players: </h2>
+                {
+                  this.state.selectedData.length==1 &&
+                  <div>
+                  <h4 className="text-white pl-2">Captain: {this.state.selectedData[0].name}</h4>
+                  
+                  </div>
+                }
+                {
+                  this.state.selectedData.length>1 &&
+                  <div>
+                  <h4 className="text-white pl-2">Captain: {this.state.selectedData[0].name}</h4>
+                  <h4 className="text-white pl-2">Vice-captain: {this.state.selectedData[1].name}</h4>
+                  
+                  </div>
+                }
+                <div className="flex justify-center mt-4">
                   <div  style={{borderRight:'solid 1px'}}>
                   <button type="button" className={"btn btn-ghost"+ this.state.yess[0]} onClick={this.handleWKsTable}>WK</button>
                   </div>
@@ -248,18 +315,24 @@ export default class Playerchoose extends Component {
                   <button type="button" className={"btn btn-ghost"+ this.state.yess[1]} onClick={this.handleBatmansTable}>BAT</button>
                   </div>
                   <div  style={{borderRight:'solid 1px'}}>
-                  <button type="button" className={"btn btn-ghost"+ this.state.yes[2]} onClick={this.handleBowlerTable} >BOW</button>
+                  <button type="button" className={"btn btn-ghost"+ this.state.yess[2]} onClick={this.handleBowlersTable} >BOW</button>
                   </div>
                   <div >
-                  <button type="button" className={"btn btn-ghost"+ this.state.yes[3]} onClick={this.handleAllRounderTable}>AR</button>
+                  <button type="button" className={"btn btn-ghost"+ this.state.yess[3]} onClick={this.handleAllRoundersTable}>AR</button>
                   </div>
                 </div>
-                <div className="flex justify-center" >
+                <div className="flex justify-center mt-2" >
                 {
                   this.state.sactive=== "WKstable" && <Table1 handleRemoveFromSelected={this.handleRemoveWKFromSelected} selected data={this.state.selectedWKData} color="btn btn-error"/>
                 }
                 {
-                  this.state.sactive=== "Batmanstable" && <Table1 handleRemoveFromSelected={this.handleRemoveBatFromSelected} selected data={this.state.selectedBatData} color="btn btn-error"/>
+                  this.state.sactive=== "Batsmanstable" && <Table1 handleRemoveFromSelected={this.handleRemoveBatFromSelected} selected data={this.state.selectedBatData} color="btn btn-error"/>
+                }
+                {
+                  this.state.sactive=== "Bowlerstable" && <Table1 handleRemoveFromSelected={this.handleRemoveBowFromSelected} selected data={this.state.selectedBowData} color="btn btn-error"/>
+                }
+                {
+                  this.state.sactive=== "ARstable" && <Table1 handleRemoveFromSelected={this.handleRemoveARFromSelected} selected data={this.state.selectedARData} color="btn btn-error"/>
                 }
                 </div>
                 <div className="flex items-center justify-center">
