@@ -7,7 +7,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="cc z-20 bg-grey-900">
-        <div className="max-w-7xl z-20 mx-auto px-4 sm:px-6 lg:px-8 style={{fontFamily: 'Rajdhani'}}">
+        <div className="max-w-7xl z-20 mx-auto px-4 sm:px-6 lg:px-8" style={{fontFamily: 'Rajdhani'}}>
           <div className="flex z-20 items-center justify-between h-16">
             <div className="flex z-20 items-center ">
               <div className="flex-shrink-0">
@@ -35,16 +35,9 @@ function Navbar() {
                   </Link>
 
                   <Link
-                    to={ABOUT}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    About
-                  </Link>
-
-                  <Link
                     to={CONTACT}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
+                   >
                     Contact
                   </Link>
 
@@ -115,7 +108,7 @@ function Navbar() {
           className="z-20"
         >
           {(ref) => (
-            <div className="overflow-x-auto scrollDivH z-20 md:hidden" id="mobile-menu">
+            <div className="overflow-x-auto scrollDivH z-20 md:hidden mt-4" id="mobile-menu" >
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3 z-20">
               <Link
                     to={HOME}
@@ -123,19 +116,19 @@ function Navbar() {
                   >
                     Home
                   </Link>
-
+                  
                   <Link
                     to={LEADERBOARD}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Leaderboard
                   </Link>
-
+                  
                   <Link
-                    to={ABOUT}
+                    to="/select-team"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    About
+                    My_Team
                   </Link>
 
                   <Link
