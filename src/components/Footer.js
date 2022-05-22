@@ -4,6 +4,9 @@ import FacebookIcon from '../assets/svgs/facebook.svg'
 import InstagramIcon from '../assets/svgs/instagram.svg'
 import LinkedInIcon from '../assets/svgs/linkedin.svg'
 import TwitterIcon from '../assets/svgs/twitter.svg'
+import logo from '../assets/images/logo.svg'
+
+
 const Footer = () => {
   return (
     <div>
@@ -23,6 +26,7 @@ const Footer = () => {
          </a>
          <a className='text-xxsmall lg:text-xsmall transition duration-500 hover:scale-125 text-center' href=''>            
          <img className='w-7 lg:w-10 transition duration-500 hover:scale-125 whitespace-nowrap mx-auto lg:block' src={FacebookIcon} alt="Facebook" />
+
          </a>
       </div>
 
@@ -30,7 +34,9 @@ const Footer = () => {
             </div>
             
         </div>
+
         <h6 className='flex justify-center align-center text-lg pl-2'>All Rights Reserved by &copy; BTG 2.0</h6>
+
     </div>
   )
 }
