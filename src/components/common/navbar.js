@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import logo from '../../assets/images/btg.png';
+import hestia_logo from '../../assets/images/hestia_logo_white.png'
 
 import { ABOUT, CONTACT, HOME, LEADERBOARD } from "../../constants/routes";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="cc z-20 bg-grey-900">
-        <div className="max-w-7xl z-20 mx-auto px-4 sm:px-6 lg:px-8" style={{fontFamily: 'Rajdhani'}}>
+        <div className="max-w-7xl z-20 px-4 sm:px-6=" style={{fontFamily: 'Rajdhani'}}>
           <div className="flex z-20 items-center justify-between h-16">
             <div className="flex z-20 items-center ">
-              <div className="flex-shrink-0">
-            <img src={logo} className="w-12"></img>
+              <div className="flex flex-shrink-0 px-4 justify-center items-center mx-auto">
+              <img src={hestia_logo} className="w-20  pr-4 basis-1/3"></img>
+              <img src={logo} className="w-20 pr-4 basis-1/3"></img>
+              
               </div>
               <div className="hidden z-20 md:block uppercase text-xl font-bold">
                 <div className="ml-10 flex items-baseline z-20 space-x-4 ">

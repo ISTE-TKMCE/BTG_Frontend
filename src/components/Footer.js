@@ -6,13 +6,16 @@ import LinkedInIcon from '../assets/svgs/linkedin.svg'
 import TwitterIcon from '../assets/svgs/twitter.svg'
 import logo from '../assets/images/logo.svg'
 
-
+import iste_logo from '../assets/images/ISTElogo.svg'
 const Footer = () => {
   return (
     <div style={{backgroundColor:'#101822'}}>
         <div className=' p-2 mt-2 flex flex-row justify-center align-middle text-white'>
             <div className='w-1/2' style={{borderRight:'1px solid'}}>
-                <h1 className='text-3xl  font-bold text-center'>ISTE TKMCE</h1>
+                <div className='flex justify-center items-center'>
+                <img src={iste_logo} className="w-14"></img>
+                <h1 className='text-3xl  font-bold text-center mt-3 ml-3'><span>ISTE TKMCE</span></h1>
+                </div>
                 <p className='opacity-80 text-sm p-2 mt-3'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>                
             </div>
              

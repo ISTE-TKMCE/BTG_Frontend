@@ -24,25 +24,25 @@ const Block2 = () => {
             
            
               <div className=" flex flex-col items-center mt-7">
-              <p className="sm:w-96 w-full text-xl leading-6 text-left text-white-600 mb-7">The participant can select the match from the Beat The Game website and must pick 11 players within 100 credits.</p>
+              <p className="sm:w-96 w-full md:text-xl text-base leading-6 text-left text-white-600 mb-7">The participant can select the match from the Beat The Game website and must pick 11 players within 100 credits.</p>
                 <div className=" flex flex-col items-center">
-                    <p className="text-xl leading-6 text-left text-white-600 sm:w-96 w-full">The participants can recreate their team members even after saving. But once submitted, it cannot be changed.</p>
+                    <p className="md:text-xl text-base leading-6 text-left text-white-600 sm:w-96 w-full">The participants can recreate their team members even after saving. But once submitted, it cannot be changed.</p>
                 </div>
                 <div className="mt-7 flex flex-col items-center">
                    
-                    <p className="text-xl leading-6 text-left text-white-600 sm:w-96 w-full">The time of the game is from 12pm to 7pm.The participants must select the team before 7pm.</p>
+                    <p className="md:text-xl text-base leading-6 text-left text-white-600 sm:w-96 w-full">The time of the game is from 12pm to 7pm.The participants must select the team before 7pm.</p>
                 </div>
                 <div className="mt-7 flex flex-col items-center">
                     
-                    <p className="text-xl leading-6 text-left text-white-600 sm:w-96 w-full uppercase font-bold">your team must include:</p>
+                    <p className="md:text-xl text-base leading-6 text-left text-white-600 sm:w-96 w-full uppercase font-bold">your team must include:</p>
                 </div>
               </div>
                 <div className="mt-7 flex flex-col items-center">
                     
-                    <p className="text-xl leading-6 text-left text-white-600 sm:w-96 w-full"><span className="font-bold">W</span>icket keeper- minimum of 1 and maximum of 4.</p>
-                    <p className="text-xl leading-6 text-left text-white-600 sm:w-96 w-full"><span className="font-bold">B</span>atsman - minimum of 3 and maximum of 6.</p>
-                    <p className="text-xl leading-6 text-left text-white-600 sm:w-96 w-full"><span className="font-bold">A</span>ll rounder- minimum of 1 and maximum of 4.</p>
-                    <p className="text-xl leading-6 text-left text-white-600 sm:w-96 w-full"><span className="font-bold">B</span>owler- minimum of 3 and maximum of 6. </p>
+                    <p className="md:text-xl text-base leading-6 text-left text-white-600 sm:w-96 w-full"><span className="font-bold">W</span>icket keeper- minimum of 1 and maximum of 4.</p>
+                    <p className="md:text-xl text-base leading-6 text-left text-white-600 sm:w-96 w-full"><span className="font-bold">B</span>atsman - minimum of 3 and maximum of 6.</p>
+                    <p className="md:text-xl text-base leading-6 text-left text-white-600 sm:w-96 w-full"><span className="font-bold">A</span>ll rounder- minimum of 1 and maximum of 4.</p>
+                    <p className="md:text-xl text-base leading-6 text-left text-white-600 sm:w-96 w-full"><span className="font-bold">B</span>owler- minimum of 3 and maximum of 6. </p>
                 </div>
             </div>
         </div>

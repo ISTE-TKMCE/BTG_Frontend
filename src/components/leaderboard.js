@@ -7,9 +7,7 @@ const UserRow = (props)=>{
       <div className='w-10 mx-1'>
         <p>{props.slNo+1}</p>
       </div>
-      <div className='w-20 hidden md:block'>
-        <div className='w-10 h-10 rounded-full bg-red-500'></div>
-      </div>
+      
       <div className=' w-3/5 flex flex-col '>
         <p>{props.data.name}</p>
         <div className='w-full md:hidden'>
