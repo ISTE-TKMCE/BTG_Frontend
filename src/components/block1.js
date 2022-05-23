@@ -1,25 +1,27 @@
 import React from "react";
 import Block2 from "./block2";
 import BTG from "../assets/images/BTG.svg";
-import bg1 from "../assets/images/kohlibg.png";
+import kohli from '../assets/images/kohlibhai.jpg'
 import { Link } from "react-router-dom";
 const Block1 = () => {
   return (
-    <div className="relative w-full pb-10 pt-36">
+    <div className="relative w-full">
       {/* <div className="myVideo" id="myVideo" style={{zIndex:'20'}}>
         <video autoPlay loop>
           <source src="../assets/BtgBackground.mp4" type="video/mp4" />
         </video>
        </div> */}
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 ">
+      <div className="relative px-4 container mx-auto items-center gap-8">
       <div className="md:block">
         <img
-          className="absolute h-80 mx-auto my-auto inset-0"
+          className="absolute h-80 mx-auto  inset-0"
           src="https://btgregister.istetkmce.in/assets/img/bat.gif"
           style={{opacity:'0.2'}}
         />
       </div>
-      <div className="relative px-4 container mx-auto md:flex items-center gap-8">
-        <div className="text-color w-full md:w-1/3 ">
+        <div className="text-color w-full pt-72">
           <img src={BTG}></img>
           {/* <h1 className="text-4xl md:text-4xl align-middle lg:text-6xl w-11/12 lg:w-11/12 xl:w-full xl:text-6xl text-black">Beat The Game</h1> */}
           <div className="pt-8 pb-8">
@@ -40,11 +42,16 @@ const Block1 = () => {
         </div>
         <div>
           <a href="#instruction">
-            <button className="md:hidden hover:opacity-90 text-base w-full xl:text-base xl:w-4/12 xl:ml-2 mt-4 xl:mt-8 f-f-r py-4  text-white  font-bold   outline-none  ring-2  ring-offset-2  ring-slate-700 rounded-lg">
+            <button className="md:hidden hover:opacity-90 text-base w-full xl:text-base xl:w-4/12 xl:ml-2 mt-4 xl:mt-8 f-f-r py-4  text-white  font-bold   outline-none  ring-2  ring-offset-2  ring-slate-700 rounded-lg mb-4">
               Instructions
             </button>
           </a>
         </div>
+        
+      </div>
+      <div className="hidden md:block">
+      <img src={kohli}></img>
+      </div>
       </div>
     </div>
   );

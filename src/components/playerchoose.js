@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import kohliImage from '../assets/images/kohli_rcb.png'
-import DhoniImage from '../assets/images/jadeja_csk.png'
+import kohliImage from '../assets/images/RajastanRoyals.jpg'
+import DhoniImage from '../assets/images/GujaratTitans.jpg'
 import ImageBlock from "./common/imageblock"
 import Table1 from "./chooseplayercomponents/table1"
 import Navbar from "./common/navbar";
@@ -281,12 +281,13 @@ export default class Playerchoose extends Component {
                 
                 <Navbar />
             </div>
-                
+                <div className="grid grid-cols-1 md:grid-cols-3">
                 <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={DhoniImage} bordercolor={"#D3961F"} teamname={"CSK"}/></div>
                 <div className="flex items-center justify-center font-bold">VS</div>
                 <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={kohliImage} bordercolor={"#E2170A"} teamname={"RCB"}/></div>
+                </div>
                 <div className=" flex items-center justify-center  mt-10 mb-10 mx-3">
-                <span className="badge text-center" style={{background:'linear-gradient(to right, #FB1935, #3404F8)', height:'100%'}}>First two players you choose will be your Captain and Vice-Captain</span>
+                <span className="badge text-center md:text-2xl p-4" style={{background:'linear-gradient(to right, #FB1935, #3404F8)', height:'100%'}}>First two players you choose will be your Captain and Vice-Captain</span>
                 </div>
                 <p className="ml-2 my-3 text-white">Remaining credits: {this.state.credits}</p>
                 <p className="ml-2 my-3 text-white">Selected credits: {this.state.selectedCredits}</p>
