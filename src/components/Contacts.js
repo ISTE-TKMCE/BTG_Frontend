@@ -25,16 +25,14 @@ const Contacts = () => {
                   <div className='Heading flex items-center justify-center text-white'>Call Us for enquiries <img src={phone} className="ml-3 w-8 h-8"></img></div>
 
                   <div className='text-white text-center mt-10'>
-                    <div><h4>Aravind : 912625465364</h4></div>
-                    <div><h4>Vinay : 912625465364</h4></div>
+                    <div><h4>Aboo : 8089588916</h4></div>
+                    <div><h4>Vinay : 7994641360</h4></div>
                   </div>
                 </div>
                 
             
             </div>
-            <footer className='footer bottom-0' >
-            < Footer />
-            </footer>
+            
       <img src={bg} className="fixed pointer-events-none top-0 w-full min-h-full object-cover z-0" alt=" "/>
     </div>
   )

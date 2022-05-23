@@ -288,7 +288,7 @@ export default class Playerchoose extends Component {
                 <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={kohliImage} bordercolor={"#E2170A"} teamname={"RR"}/></div>
                 </div>
                 <div className=" flex items-center justify-center  mt-10 mb-10 mx-3">
-                <span className="badge text-center md:text-2xl p-4" style={{background:'linear-gradient(to right, #FB1935, #3404F8)', height:'100%'}}>First two players you choose will be your Captain and Vice-Captain</span>
+                <span className="badge text-center text-lg md:text-2xl p-4 " style={{background:'linear-gradient(to right, #FB1935, #3404F8)', height:'100%'}}>First two players you choose will be your Captain and Vice-Captain</span>
                 </div>
                 <p className="ml-2 my-3 text-white text-2xl uppercase">Remaining credits: {this.state.credits}</p>
                 <p className="ml-2 my-3 text-white text-2xl uppercase">Selected credits: {this.state.selectedCredits}</p>
