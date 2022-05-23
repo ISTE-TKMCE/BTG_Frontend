@@ -92,3 +92,10 @@ body,html{
   .btn-active{
     background-color: rgba(0, 0, 0, 0.19);
   }
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }

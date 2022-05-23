@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 const Block1 = () => {
   return (
     <div className="relative w-full pb-10 pt-36">
+      {/* <div className="myVideo" id="myVideo" style={{zIndex:'20'}}>
+        <video autoPlay loop>
+          <source src="../assets/BtgBackground.mp4" type="video/mp4" />
+        </video>
+       </div> */}
       <div className="md:block">
         <img
           className="absolute h-80 mx-auto my-auto inset-0"

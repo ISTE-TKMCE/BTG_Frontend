@@ -8,7 +8,7 @@ import Navbar from './common/navbar'
 const HomePage = () => {
   
   return (
-    <div className='' style={{background: "linear-gradient(to right, #330708, #330708, #0E070E, #070E20, #050813)"}}>
+    <div className='' style={{  background: "linear-gradient(to right, #200122, #6f0000)"}}>
       <div className="z-40 w-full" >
                 
                 <Navbar />
@@ -19,12 +19,14 @@ const HomePage = () => {
            
            </div>
            
-           
+           <div className='w-full'>
             <Block2 />
-           
-
+            </div>
+            <div style={{backgroundColor:'#101822'}}>
         <MatchDiagram/>
+        
         <Footer/>
+        </div>
     </div>
     
   )
