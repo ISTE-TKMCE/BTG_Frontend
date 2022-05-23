@@ -14,7 +14,7 @@ const HomePage = () => {
                 <Navbar />
             </div>
             
-            <div className='text-center' >
+            <div className='text-center md:ml-5' >
            <Block1 />
            
            </div>
