@@ -23,8 +23,9 @@ const HomePage = () => {
             <Block2 />
             </div>
             <div style={{backgroundColor:'#101822'}}>
+        <div className='mb-20'>
         <MatchDiagram/>
-        
+        </div>
         <Footer/>
         </div>
     </div>

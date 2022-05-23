@@ -4,6 +4,7 @@ import DhoniImage from '../assets/images/GujaratTitans.jpg'
 import ImageBlock from "./common/imageblock"
 import Table1 from "./chooseplayercomponents/table1"
 import Navbar from "./common/navbar";
+import Footer from "./Footer";
 export default class Playerchoose extends Component {
     
     color="#4608F6"
@@ -282,15 +283,20 @@ export default class Playerchoose extends Component {
                 <Navbar />
             </div>
                 <div className="grid grid-cols-1 md:grid-cols-3">
-                <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={DhoniImage} bordercolor={"#D3961F"} teamname={"CSK"}/></div>
-                <div className="flex items-center justify-center font-bold">VS</div>
-                <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={kohliImage} bordercolor={"#E2170A"} teamname={"RCB"}/></div>
+                <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={DhoniImage} bordercolor={"#D3961F"} teamname={"GT"}/></div>
+                <div className="mt-10 flex items-center justify-center font-bold md:text-4xl">VS</div>
+                <div className="imagespart flex items-center justify-center" style={{margin:'10px'}}><ImageBlock url={kohliImage} bordercolor={"#E2170A"} teamname={"RR"}/></div>
                 </div>
                 <div className=" flex items-center justify-center  mt-10 mb-10 mx-3">
                 <span className="badge text-center md:text-2xl p-4" style={{background:'linear-gradient(to right, #FB1935, #3404F8)', height:'100%'}}>First two players you choose will be your Captain and Vice-Captain</span>
                 </div>
-                <p className="ml-2 my-3 text-white">Remaining credits: {this.state.credits}</p>
-                <p className="ml-2 my-3 text-white">Selected credits: {this.state.selectedCredits}</p>
+                <p className="ml-2 my-3 text-white text-2xl uppercase">Remaining credits: {this.state.credits}</p>
+                <p className="ml-2 my-3 text-white text-2xl uppercase">Selected credits: {this.state.selectedCredits}</p>
+                <div className="flex items-center justify-center mb-6">
+                <div className="badge  p-6">
+                <p className="text-xl p-4">Available Players:</p>
+                </div>
+                </div>
                 <div className="flex justify-center">
                   <div  style={{borderRight:'solid 1px'}}>
                   <button type="button" className={"btn btn-ghost"+ this.state.yes[0]} onClick={this.handleWKTable}>WK</button>
@@ -319,22 +325,27 @@ export default class Playerchoose extends Component {
                 this.state.active=== "AllRoundertable" && <Table1 credits={this.state.credits} handleAddToSelected={this.handleAddARToSelected}  data={this.state.AllRounders} color="btn btn-accent"/>
                 }
                 </div>
-                <h2 className="text-white pl-2">Selected Players: </h2>
+                <div className="flex flex-col items-center justify-center mb-6">
+                <div className="badge  p-6">
+                <p className="text-xl p-4">Selected Players:</p>
+                </div>
                 {
                   this.state.selectedData.length==1 &&
                   <div>
-                  <h4 className="text-white pl-2">Captain: {this.state.selectedData[0].name}</h4>
+                  <h4 className="text-white pl-2 mt-3">Captain: {this.state.selectedData[0].name}</h4>
                   
                   </div>
                 }
                 {
                   this.state.selectedData.length>1 &&
                   <div>
-                  <h4 className="text-white pl-2">Captain: {this.state.selectedData[0].name}</h4>
-                  <h4 className="text-white pl-2">Vice-captain: {this.state.selectedData[1].name}</h4>
+                  <h4 className="text-white pl-2 mt-3">Captain: {this.state.selectedData[0].name}</h4>
+                  <h4 className="text-white pl-2 mt-3">Vice-captain: {this.state.selectedData[1].name}</h4>
                   
                   </div>
                 }
+                </div>
+                
                 <div className="flex justify-center mt-4">
                   <div  style={{borderRight:'solid 1px'}}>
                   <button type="button" className={"btn btn-ghost"+ this.state.yess[0]} onClick={this.handleWKsTable}>WK</button>
@@ -372,10 +383,10 @@ export default class Playerchoose extends Component {
                 </div>
                 </div>
                 }
-                <div className="flex items-center justify-center">
-                  <button type="button" className="btn btn-accent" onClick={this.handleError}>SAVE</button>
+                <div className="flex items-center justify-center pb-4">
+                  <button type="button" className="btn btn-accent " onClick={this.handleError}>SAVE</button>
                 </div>
-                
+               
             </div>
         
         )

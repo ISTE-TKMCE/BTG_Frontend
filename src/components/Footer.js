@@ -16,19 +16,19 @@ const Footer = () => {
                 <img src={iste_logo} className="w-14"></img>
                 <h1 className='text-3xl  font-bold text-center mt-3 ml-3'><span>ISTE TKMCE</span></h1>
                 </div>
-                <p className='opacity-80 text-sm p-2 mt-3'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>                
+                <p className='opacity-80 text-sm p-2 mt-3'></p>                
             </div>
              
             <div className='w-1/2'>
                 <h1 className='text-3xl  font-bold text-center'>Follow Us</h1>
                 <div className=' pt-4 lg:pt-8 lg:pb-4 '>
-      <div className="w-full uppercase grid grid-cols-2 lg:w-2/3 lg:grid-cols-2 flex justify-center items-center">
+      <div className="w-full uppercase grid grid-cols-2 lg:w-2/3 lg:grid-cols-2 flex justify-center items-center mx-auto">
      
          <a className='text-xxsmall lg:text-xsmall transition duration-500 hover:scale-125 text-center' href=''>            
-         <img className='w-7 lg:w-10 transition duration-500 hover:scale-125 whitespace-nowrap mx-auto lg:block' src={InstagramIcon} alt="Facebook" />
+         <img className='w-7 lg:w-10 transition duration-500 hover:scale-125 whitespace-nowrap mx-auto lg:block font-white' src={InstagramIcon} alt="Facebook" />
          </a>
          <a className='text-xxsmall lg:text-xsmall transition duration-500 hover:scale-125 text-center' href=''>            
-         <img className='w-7 lg:w-10 transition duration-500 hover:scale-125 whitespace-nowrap mx-auto lg:block' src={FacebookIcon} alt="Facebook" />
+         <img className='w-7 lg:w-10 transition duration-500 hover:scale-125 whitespace-nowrap mx-auto lg:block font-white' src={FacebookIcon} alt="Facebook" />
 
          </a>
       </div>
