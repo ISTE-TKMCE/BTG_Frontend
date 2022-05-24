@@ -5,10 +5,24 @@ import ImageBlock from "./common/imageblock";
 import Table1 from "./chooseplayercomponents/table1";
 import Navbar from "./common/navbar";
 import Footer from "./Footer";
+import {BASE_URL} from '../constants/urls';
+
+
+const getToken = () => {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+};
+
 export default class Playerchoose extends Component {
   color = "#4608F6";
   constructor(props) {
     super(props);
+
+
+
+
+
     this.state = {
       yes: ["btn-active", "", "", ""],
       yess: ["btn-active", "", "", ""],
@@ -17,91 +31,11 @@ export default class Playerchoose extends Component {
       error: "",
       credits: 100,
       selectedCredits: 0,
-      teamData: [
-        {
-          name: "Player1",
-          team: "CSK",
-          credits: 108.5,
-        },
-        {
-          name: "Player2",
-          team: "RCB",
-          credits: 8.0,
-        },
-        {
-          name: "Player3",
-          team: "CSK",
-          credits: 9.5,
-        },
-      ],
-      WK: [
-        {
-          name: "Dhoni",
-          team: "CSK",
-          credits: 98.5,
-        },
-        {
-          name: "Player2",
-          team: "RCB",
-          credits: 8.0,
-        },
-        {
-          name: "Player3",
-          team: "CSK",
-          credits: 9.5,
-        },
-      ],
-      BatsMan: [
-        {
-          name: "Kohli",
-          team: "Rcb",
-          credits: 8.5,
-        },
-        {
-          name: "Player2",
-          team: "RCB",
-          credits: 8.0,
-        },
-        {
-          name: "Player3",
-          team: "CSK",
-          credits: 9.5,
-        },
-      ],
-      Bowlers: [
-        {
-          name: "Bravo",
-          team: "CSK",
-          credits: 8.5,
-        },
-        {
-          name: "Player2",
-          team: "RCB",
-          credits: 8.0,
-        },
-        {
-          name: "Player3",
-          team: "CSK",
-          credits: 9.5,
-        },
-      ],
-      AllRounders: [
-        {
-          name: "Jadeja",
-          team: "CSK",
-          credits: 8.5,
-        },
-        {
-          name: "Player2",
-          team: "RCB",
-          credits: 8.0,
-        },
-        {
-          name: "Player3",
-          team: "CSK",
-          credits: 9.5,
-        },
-      ],
+
+      WK: [],
+      BatsMan: [],
+      Bowlers: [],
+      AllRounders: [],
       selectedData: [],
       selectedWKData: [],
       selectedBatData: [],
@@ -109,6 +43,36 @@ export default class Playerchoose extends Component {
       selectedARData: [],
     };
   }
+
+  componentDidMount() {
+    
+    fetch(BASE_URL+'/createnewteam/RR/GT',
+    { 
+      method:"GET",
+      headers:{
+        "Authorization": `token ${getToken()}`
+      }
+    })
+    .then((response) => response.json())
+    .then(team => {
+        console.log(team)
+
+        this.setState({
+           BatsMan:  team.filter( (player) => { return player.skill === "Batter" }),
+           Bowlers:  team.filter( (player) => { return player.skill === "Batter" }),
+           AllRounders:  team.filter( (player) => { return player.skill === "All Rounder" }),
+           WK:  team.filter( (player) => { return player.skill === "WicketKeeper" }) 
+
+
+
+          });
+    })
+    .catch(e=>{
+        console.log(e);
+    })
+}
+
+
   handleWKTable = () => {
     this.setState({
       active: "WKtable",
