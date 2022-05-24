@@ -168,7 +168,7 @@ export default class Playerchoose extends Component {
   };
   handleAddWKToSelected = (player, index) => {
     this.setState((prev) => ({
-      selectedCredits: prev.selectedCredits + player.credits,
+      // selectedCredits: prev.selectedCredits + player.credits,
       credits: prev.credits - player.credits,
       ...prev.WK.splice(index, 1),
       selectedData: [...prev.selectedData, player],
@@ -178,7 +178,7 @@ export default class Playerchoose extends Component {
 
   handleRemoveWKFromSelected = (player, index) => {
     this.setState((prev) => ({
-      selectedCredits: prev.selectedCredits - player.credits,
+      // selectedCredits: prev.selectedCredits - player.credits,
       credits: prev.credits + player.credits,
       WK: [...prev.WK, player],
       ...prev.selectedData.splice(index, 1),
@@ -187,7 +187,7 @@ export default class Playerchoose extends Component {
   };
   handleAddBatToSelected = (player, index) => {
     this.setState((prev) => ({
-      selectedCredits: prev.selectedCredits + player.credits,
+      // selectedCredits: prev.selectedCredits + player.credits,
       credits: prev.credits - player.credits,
       ...prev.BatsMan.splice(index, 1),
       selectedData: [...prev.selectedData, player],
@@ -197,7 +197,7 @@ export default class Playerchoose extends Component {
 
   handleRemoveBatFromSelected = (player, index) => {
     this.setState((prev) => ({
-      selectedCredits: prev.selectedCredits - player.credits,
+      // selectedCredits: prev.selectedCredits - player.credits,
       credits: prev.credits + player.credits,
       BatsMan: [...prev.BatsMan, player],
       ...prev.selectedData.splice(index, 1),
@@ -206,7 +206,7 @@ export default class Playerchoose extends Component {
   };
   handleAddBowToSelected = (player, index) => {
     this.setState((prev) => ({
-      selectedCredits: prev.selectedCredits + player.credits,
+      // selectedCredits: prev.selectedCredits + player.credits,
       credits: prev.credits - player.credits,
       ...prev.Bowlers.splice(index, 1),
       selectedData: [...prev.selectedData, player],
@@ -215,7 +215,7 @@ export default class Playerchoose extends Component {
   };
   handleRemoveBowFromSelected = (player, index) => {
     this.setState((prev) => ({
-      selectedCredits: prev.selectedCredits - player.credits,
+      // selectedCredits: prev.selectedCredits - player.credits,
       credits: prev.credits + player.credits,
       Bowlers: [...prev.Bowlers, player],
       ...prev.selectedData.splice(index, 1),
@@ -224,7 +224,7 @@ export default class Playerchoose extends Component {
   };
   handleAddARToSelected = (player, index) => {
     this.setState((prev) => ({
-      selectedCredits: prev.selectedCredits + player.credits,
+      // selectedCredits: prev.selectedCredits + player.credits,
       credits: prev.credits - player.credits,
       ...prev.AllRounders.splice(index, 1),
       selectedData: [...prev.selectedData, player],
@@ -233,7 +233,7 @@ export default class Playerchoose extends Component {
   };
   handleRemoveARFromSelected = (player, index) => {
     this.setState((prev) => ({
-      selectedCredits: prev.selectedCredits - player.credits,
+      // selectedCredits: prev.selectedCredits - player.credits,
       credits: prev.credits + player.credits,
       AllRounders: [...prev.AllRounders, player],
       ...prev.selectedData.splice(index, 1),
@@ -367,7 +367,7 @@ export default class Playerchoose extends Component {
           Remaining credits: {this.state.credits}
         </p>
         <p className="ml-2 my-3 text-white text-2xl uppercase">
-          Selected credits: {this.state.selectedCredits}
+          Selected credits: {100 - this.state.credits}
         </p>
         <div className="flex items-center justify-center mb-6">
           <div className="badge  p-6">
