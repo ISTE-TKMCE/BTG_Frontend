@@ -4,6 +4,7 @@ import Table from "./playerslists/Table";
 import Navbar from "./common/navbar";
 import { BASE_URL } from "../constants/urls";
 import colorNames from "daisyui/src/colors/colorNames";
+import useFetchAuth from '../hooks/useFetchAuth';
 
 const getToken = () => {
   const tokenString = sessionStorage.getItem("token");
@@ -11,36 +12,13 @@ const getToken = () => {
   return userToken?.token;
 };
 
+
+
+
 export default function MyTeam() {
   const color = "#4608F6";
-  const [selectedData, setSelectedData] = useState(null);
-
-  useEffect(() => {
-    fetch(BASE_URL + "/users/myteam", {
-      method: "GET",
-      headers: {
-        Authorization: `token ${getToken()}`,
-      },
-    })
-      .then((response) => {
-        if (response.status === 308) {
-          window.location = "/select-team";
-        }
-        return response.json();
-      })
-      .then((team) => {
-
-        setSelectedData()
-
-        console.log(team);
-        console.log(selectedData);
-
-
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  },[]);
+  
+  const { error, isPending, data: list } = useFetchAuth(BASE_URL+'/users/myteam' , getToken());
 
   return (
     <div
@@ -55,7 +33,9 @@ export default function MyTeam() {
         <Navbar />
       </div>
 
-      <Table  data={selectedData} />
+      
+
+      {!isPending && <Table  data={list} />}
     </div>
   );
 }

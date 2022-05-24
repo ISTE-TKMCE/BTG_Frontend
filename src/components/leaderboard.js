@@ -31,7 +31,7 @@ const UserRow = (props)=>{
 
 const Leaderboard = () => {
 
-  const [userState,setUserState] = useState({name:"Aravind"});
+  const [userState,setUserState] = useState({name:"Hi,"});
   const { error, isPending, data: leaderBoard } = useFetch(BASE_URL+'/users/leaderboard/');
 
   

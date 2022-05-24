@@ -12,18 +12,25 @@ export default class Table extends Component {
                         <thead>
                         <tr>
                             <th>Player name</th>
-                            <th>Team</th>
-                            <th>Points</th>
                             
                         </tr>
                         </thead>
                         <tbody>
                        
                         
+                        
                          
-                                <tr key="4">
-                                <td>{data.p1} hello</td>
-                                </tr>
+                                <tr ><td>{ this.props.data.p1 }</td></tr>
+                                <tr ><td>{ this.props.data.p2 }</td></tr>
+                                <tr ><td>{ this.props.data.p3 }</td></tr>
+                                <tr ><td>{ this.props.data.p4 }</td></tr>
+                                <tr key="4"><td>{ this.props.data.p5 }</td></tr>
+                                <tr ><td>{ this.props.data.p6 }</td></tr>
+                                <tr ><td>{ this.props.data.p7 }</td></tr>
+                                <tr ><td>{ this.props.data.p8 }</td></tr>
+                                <tr ><td>{ this.props.data.p9 }</td></tr>
+                                <tr ><td>{ this.props.data.p10 }</td></tr>
+                                <tr ><td>{ this.props.data.p11 }</td></tr>
                         
                     
                         </tbody>

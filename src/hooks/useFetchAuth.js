@@ -1,19 +1,14 @@
 import { useState, useEffect, useContext } from 'react';
-import { ModalContext } from '../context/modal';
-import { UserContext } from '../context/user';
 
 const useFetchAuth = (url , token) => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
   // const {tokenState} = useContext(UserContext);
-  // const [token,setToken] = toke
 
-  const {showState} = useContext(ModalContext);
-  const [show,setShow] = showState;
 
   useEffect(() => {
-    setShow(true);
+    setIsPending(true)
     const abortCont = new AbortController();
 
     
@@ -31,8 +26,7 @@ const useFetchAuth = (url , token) => {
         return res.json();
       })
       .then(data => {
-        // setIsPending(false);
-        setShow(false);
+        setIsPending(false);
         setData(data);
         // console.log(data);
         setError(null);
@@ -42,8 +36,7 @@ const useFetchAuth = (url , token) => {
           // console.log('--')
         } else {
           // auto catches network / connection error
-          // setIsPending(false);
-          setShow(false)
+          setIsPending(false);
           setError(err.message);
         }
       })
