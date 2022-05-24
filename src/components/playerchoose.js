@@ -5,8 +5,8 @@ import ImageBlock from "./common/imageblock";
 import Table1 from "./chooseplayercomponents/table1";
 import Navbar from "./common/navbar";
 import Footer from "./Footer";
-import {BASE_URL} from '../constants/urls';
-
+import { BASE_URL } from '../constants/urls';
+import { Redirect } from "react-router-dom";
 
 const getToken = () => {
   const tokenString = sessionStorage.getItem('token');
@@ -14,21 +14,24 @@ const getToken = () => {
   return userToken?.token
 };
 
-const saveTeam = (team)=> {
+const saveTeam = (team) => {
   const requestOptions = {
-      method: 'POST',
-      headers:{
-        "Authorization": `token ${getToken()}`,
-        'Content-Type': 'application/json' 
-      },
-      body: JSON.stringify(team)
+    method: 'POST',
+    headers: {
+      "Authorization": `token ${getToken()}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(team)
   };
-  fetch(BASE_URL+'/users/myteam', requestOptions)
-      .then(response => {
-        if(response.status === 200) {
-          window.location="/myteam"};
-        // response.json()
-      })
+  fetch(BASE_URL + '/users/myteam', requestOptions)
+    .then(response => {
+      if (response.status === 200) {
+        this.setState({
+          re:true
+        })
+      };
+      // response.json()
+    })
 }
 
 
@@ -56,26 +59,37 @@ export default class Playerchoose extends Component {
       selectedBatData: [],
       selectedBowData: [],
       selectedARData: [],
+      re:false,
     };
   }
 
   componentDidMount() {
-    
-    fetch(BASE_URL+'/createnewteam/RR/GT',
-    { 
-      method:"GET",
-      headers:{
-        "Authorization": `token ${getToken()}`
-      }
-    })
-    .then((response) => {
-      console.log(response);
-      if(response.status === 308) {
-        window.location="/myteam"
-      };
-      return response.json()
-    })
-    .then(teamR => {
+
+    fetch(BASE_URL + '/createnewteam/RR/GT',
+      {
+        method: "GET",
+        headers: {
+          "Authorization": `token ${getToken()}`
+        }
+      })
+      .then((response) => {
+        console.log(">>>>>>>>>>>>>>" , response);
+        if (response.status === 308) {
+          this.setState({
+            re:true
+          })
+
+
+        }else{
+          this.setState({
+            re:false
+          })
+
+        }
+
+        return response.json()
+      })
+      .then(teamR => {
         console.log(teamR)
 
 
@@ -88,19 +102,19 @@ export default class Playerchoose extends Component {
         }));
 
         this.setState({
-           BatsMan:  team.filter( (player) => { return player.skill === "Batter" }),
-           Bowlers:  team.filter( (player) => { return player.skill === "Bowler" }),
-           AllRounders:  team.filter( (player) => { return player.skill === "All Rounder" }),
-           WK:  team.filter( (player) => { return player.skill === "WicketKeeper" }) 
+          BatsMan: team.filter((player) => { return player.skill === "Batter" }),
+          Bowlers: team.filter((player) => { return player.skill === "Bowler" }),
+          AllRounders: team.filter((player) => { return player.skill === "All Rounder" }),
+          WK: team.filter((player) => { return player.skill === "WicketKeeper" })
 
 
 
-          });
-    })
-    .catch(e=>{
+        });
+      })
+      .catch(e => {
         console.log(e);
-    })
-}
+      })
+  }
 
 
   handleWKTable = () => {
@@ -269,7 +283,7 @@ export default class Playerchoose extends Component {
           "There should be 11 players in your team",
       });
     }
-     else {
+    else {
       this.setState({
         error: "",
       });
@@ -278,21 +292,28 @@ export default class Playerchoose extends Component {
       //send post requests
       // saveTeam()
 
-      const data ={}
+      const data = {}
 
-      for ( let i=0; i< this.state.selectedData.length ; i++){
-        data[`p${i+1}`] = this.state.selectedData[i].name
+      for (let i = 0; i < this.state.selectedData.length; i++) {
+        data[`p${i + 1}`] = this.state.selectedData[i].name
 
       }
       console.log(data)
 
       saveTeam(data);
-      
+
     }
   };
 
   render() {
+
+    
+
+    
     return (
+
+      
+      
       <div
         className=" bg-gradient1 bg-cover"
         style={{
@@ -302,6 +323,7 @@ export default class Playerchoose extends Component {
             "linear-gradient(to right, #330708, #330708, #0E070E, #070E20, #050813)",
         }}
       >
+        {this.state.re && <Redirect to="/myteam" />}
         <div className="z-40 w-full">
           <Navbar />
         </div>
@@ -345,7 +367,7 @@ export default class Playerchoose extends Component {
           Remaining credits: {this.state.credits}
         </p>
         <p className="ml-2 my-3 text-white text-2xl uppercase">
-          Selected credits: {100-this.state.credits}
+          Selected credits: {this.state.selectedCredits}
         </p>
         <div className="flex items-center justify-center mb-6">
           <div className="badge  p-6">

@@ -5,6 +5,7 @@ import Navbar from "./common/navbar";
 import { BASE_URL } from "../constants/urls";
 import colorNames from "daisyui/src/colors/colorNames";
 import useFetchAuth from '../hooks/useFetchAuth';
+import { Redirect } from "react-router-dom";
 
 const getToken = () => {
   const tokenString = sessionStorage.getItem("token");
@@ -33,9 +34,10 @@ export default function MyTeam() {
         <Navbar />
       </div>
 
-      
 
-      {!isPending && <Table  data={list} />}
+      {isPending ?  "loading" :  (true ? <Redirect to="/select-team" />: <Table  data={list} />)}
+
+
     </div>
   );
 }
