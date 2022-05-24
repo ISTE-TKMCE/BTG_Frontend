@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import bg from "../assets/images/playstyle-linear-overlay.png";
 import Navbar from './common/navbar';
+import {BASE_URL} from '../constants/urls';
+import useFetch from "../hooks/useFetch";
+
+
+
 const UserRow = (props)=>{
   return(
     <div className='flex scrollDivH flex-row overflow-x-auto md:items-center w-full my-2 border-b md:border-none py-5 md:py-2'>
@@ -9,9 +14,9 @@ const UserRow = (props)=>{
       </div>
       
       <div className=' w-3/5 flex flex-col '>
-        <p>{props.data.name}</p>
+        <p>{props.data.username}</p>
         <div className='w-full md:hidden'>
-        <p>CSE</p>
+        <p>{props.data.batch}</p>
       </div>
       </div>
       <div className='w-1/6 hidden md:block'>
@@ -27,38 +32,41 @@ const UserRow = (props)=>{
 const Leaderboard = () => {
 
   const [userState,setUserState] = useState({name:"Aravind"});
-  const [leaderBoard,setLeaderBoard] = useState(null);
+  const { error, isPending, data: leaderBoard } = useFetch(BASE_URL+'/users/leaderboard/');
 
-  const details = [
-    {
-      name:"Abc",
-      img:"",
-      branch:"CSE",
-      points:"2400",
-    },
-    {
-      name:"Someone",
-      img:"",
-      branch:"CSE",
-      points:"2400",
-    },
-    {
-      name:"HHello",
-      img:"",
-      branch:"ECE",
-      points:"2400",
-    },
-    {
-      name:"Abc",
-      img:"",
-      branch:"CSE",
-      points:"2400",
-    },
-  ]
+  
+  // const details = [
+  //   {
+  //     name:"Abc",
+  //     img:"",
+  //     branch:"CSE",
+  //     points:"2400",
+  //   },
+  //   {
+  //     name:"Someone",
+  //     img:"",
+  //     branch:"CSE",
+  //     points:"2400",
+  //   },
+  //   {
+  //     name:"HHello",
+  //     img:"",
+  //     branch:"ECE",
+  //     points:"2400",
+  //   },
+  //   {
+  //     name:"Abc",
+  //     img:"",
+  //     branch:"CSE",
+  //     points:"2400",
+  //   },
+  // ]
 
-  useEffect(()=>{
-    setLeaderBoard(details);
-  },[]);
+// 
+
+  // useEffect(()=>{
+  //   setLeaderBoard(details);
+  // },[]);
   return (
     <div>
     <div className="z-40 w-full">
@@ -75,7 +83,10 @@ const Leaderboard = () => {
           {
             leaderBoard?.length>0 && leaderBoard.map((item,index)=>{
               return(
-                <UserRow data={item} key={index} slNo={index} />
+                <>
+                  { isPending ? "Loading" : <UserRow data={item} key={index} slNo={index} />}
+
+                </>
               )
             })
           }
