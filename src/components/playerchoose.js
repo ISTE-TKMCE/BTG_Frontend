@@ -259,7 +259,17 @@ export default class Playerchoose extends Component {
         error:
           "There should be atleast 1 and maximum of 4 All-Rounders in your team",
       });
-    } else {
+    }
+    else if (
+      this.state.selectedData.length < 11 ||
+      this.state.selectedData.length > 11
+    ) {
+      this.setState({
+        error:
+          "There should be 11 players in your team",
+      });
+    }
+     else {
       this.setState({
         error: "",
       });
