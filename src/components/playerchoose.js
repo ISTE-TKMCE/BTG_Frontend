@@ -75,9 +75,9 @@ export default class Playerchoose extends Component {
       .then((response) => {
         console.log(">>>>>>>>>>>>>>" , response);
         if (response.status === 308) {
-          this.setState({
-            re:true
-          })
+          // this.setState({
+          //   re:true
+          // })
 
 
         }else{
