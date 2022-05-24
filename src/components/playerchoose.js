@@ -14,13 +14,27 @@ const getToken = () => {
   return userToken?.token
 };
 
+const saveTeam = (team)=> {
+  const requestOptions = {
+      method: 'POST',
+      headers:{
+        "Authorization": `token ${getToken()}`,
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify(team)
+  };
+  fetch(BASE_URL+'/users/myteam', requestOptions)
+      .then(response => {
+        if(response.status === 200) {window.location="/myteam"};
+        // response.json()
+      })
+}
+
+
 export default class Playerchoose extends Component {
   color = "#4608F6";
   constructor(props) {
     super(props);
-
-
-
 
 
     this.state = {
@@ -54,12 +68,21 @@ export default class Playerchoose extends Component {
       }
     })
     .then((response) => response.json())
-    .then(team => {
-        console.log(team)
+    .then(teamR => {
+        console.log(teamR)
+
+
+        const team = teamR.map(({
+          credit: credits,
+          ...rest
+        }) => ({
+          credits,
+          ...rest
+        }));
 
         this.setState({
            BatsMan:  team.filter( (player) => { return player.skill === "Batter" }),
-           Bowlers:  team.filter( (player) => { return player.skill === "Batter" }),
+           Bowlers:  team.filter( (player) => { return player.skill === "Bowler" }),
            AllRounders:  team.filter( (player) => { return player.skill === "All Rounder" }),
            WK:  team.filter( (player) => { return player.skill === "WicketKeeper" }) 
 
@@ -233,7 +256,21 @@ export default class Playerchoose extends Component {
       this.setState({
         error: "",
       });
-      console.log(this.state.selectedWKData.length);
+      console.log(this.state.selectedData);
+
+      //send post requests
+      // saveTeam()
+
+      const data ={}
+
+      for ( let i=0; i< this.state.selectedData.length ; i++){
+        data[`p${i+1}`] = this.state.selectedData[i].name
+
+      }
+      console.log(data)
+
+      saveTeam(data);
+      
     }
   };
 
