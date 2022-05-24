@@ -35,7 +35,7 @@ export default function MyTeam() {
       </div>
 
 
-      {isPending ?  "loading" :  (true ? <Redirect to="/select-team" />: <Table  data={list} />)}
+      {isPending ?  "loading" :  ( list.message ? <Redirect to="/select-team" />: <Table  data={list} />)}
 
 
     </div>

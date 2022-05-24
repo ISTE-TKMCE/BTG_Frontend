@@ -14,25 +14,7 @@ const getToken = () => {
   return userToken?.token
 };
 
-const saveTeam = (team) => {
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      "Authorization": `token ${getToken()}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(team)
-  };
-  fetch(BASE_URL + '/users/myteam', requestOptions)
-    .then(response => {
-      if (response.status === 200) {
-        this.setState({
-          re:true
-        })
-      };
-      // response.json()
-    })
-}
+
 
 
 export default class Playerchoose extends Component {
@@ -63,6 +45,9 @@ export default class Playerchoose extends Component {
     };
   }
 
+
+  
+
   componentDidMount() {
 
     fetch(BASE_URL + '/createnewteam/RR/GT',
@@ -75,9 +60,9 @@ export default class Playerchoose extends Component {
       .then((response) => {
         console.log(">>>>>>>>>>>>>>" , response);
         if (response.status === 308) {
-          // this.setState({
-          //   re:true
-          // })
+          this.setState({
+            re:true
+          })
 
 
         }else{
@@ -169,7 +154,7 @@ export default class Playerchoose extends Component {
   handleAddWKToSelected = (player, index) => {
     this.setState((prev) => ({
       // selectedCredits: prev.selectedCredits + player.credits,
-      credits: prev.credits - player.credits,
+      credits: parseInt(prev.credits) - parseInt(player.credits),
       ...prev.WK.splice(index, 1),
       selectedData: [...prev.selectedData, player],
       selectedWKData: [...prev.selectedWKData, player],
@@ -179,7 +164,7 @@ export default class Playerchoose extends Component {
   handleRemoveWKFromSelected = (player, index) => {
     this.setState((prev) => ({
       // selectedCredits: prev.selectedCredits - player.credits,
-      credits: prev.credits + player.credits,
+      credits: parseInt(prev.credits) + parseInt(player.credits),
       WK: [...prev.WK, player],
       ...prev.selectedData.splice(index, 1),
       ...prev.selectedWKData.splice(index, 1),
@@ -188,7 +173,7 @@ export default class Playerchoose extends Component {
   handleAddBatToSelected = (player, index) => {
     this.setState((prev) => ({
       // selectedCredits: prev.selectedCredits + player.credits,
-      credits: prev.credits - player.credits,
+      credits: parseInt(prev.credits) - parseInt(player.credits),
       ...prev.BatsMan.splice(index, 1),
       selectedData: [...prev.selectedData, player],
       selectedBatData: [...prev.selectedBatData, player],
@@ -198,7 +183,7 @@ export default class Playerchoose extends Component {
   handleRemoveBatFromSelected = (player, index) => {
     this.setState((prev) => ({
       // selectedCredits: prev.selectedCredits - player.credits,
-      credits: prev.credits + player.credits,
+      credits: parseInt(prev.credits) + parseInt(player.credits),
       BatsMan: [...prev.BatsMan, player],
       ...prev.selectedData.splice(index, 1),
       ...prev.selectedBatData.splice(index, 1),
@@ -207,7 +192,7 @@ export default class Playerchoose extends Component {
   handleAddBowToSelected = (player, index) => {
     this.setState((prev) => ({
       // selectedCredits: prev.selectedCredits + player.credits,
-      credits: prev.credits - player.credits,
+      credits: parseInt(prev.credits) - parseInt(player.credits),
       ...prev.Bowlers.splice(index, 1),
       selectedData: [...prev.selectedData, player],
       selectedBowData: [...prev.selectedBowData, player],
@@ -216,7 +201,7 @@ export default class Playerchoose extends Component {
   handleRemoveBowFromSelected = (player, index) => {
     this.setState((prev) => ({
       // selectedCredits: prev.selectedCredits - player.credits,
-      credits: prev.credits + player.credits,
+      credits: parseInt(prev.credits) + parseInt(player.credits),
       Bowlers: [...prev.Bowlers, player],
       ...prev.selectedData.splice(index, 1),
       ...prev.selectedBowData.splice(index, 1),
@@ -225,7 +210,7 @@ export default class Playerchoose extends Component {
   handleAddARToSelected = (player, index) => {
     this.setState((prev) => ({
       // selectedCredits: prev.selectedCredits + player.credits,
-      credits: prev.credits - player.credits,
+      credits: parseInt(prev.credits) - parseInt(player.credits),
       ...prev.AllRounders.splice(index, 1),
       selectedData: [...prev.selectedData, player],
       selectedARData: [...prev.selectedARData, player],
@@ -234,12 +219,33 @@ export default class Playerchoose extends Component {
   handleRemoveARFromSelected = (player, index) => {
     this.setState((prev) => ({
       // selectedCredits: prev.selectedCredits - player.credits,
-      credits: prev.credits + player.credits,
+      credits: parseInt(prev.credits) + parseInt(player.credits),
       AllRounders: [...prev.AllRounders, player],
       ...prev.selectedData.splice(index, 1),
       ...prev.selectedARData.splice(index, 1),
     }));
   };
+
+
+   saveTeam = (team) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        "Authorization": `token ${getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(team)
+    };
+    fetch(BASE_URL + '/users/myteam', requestOptions)
+      .then(response => {
+        if (response.status === 200) {
+          this.setState({
+            re:true
+          })
+        };
+        // response.json()
+      })
+  }
   handleError = () => {
     if (
       this.state.selectedWKData.length < 1 ||
@@ -300,7 +306,7 @@ export default class Playerchoose extends Component {
       }
       console.log(data)
 
-      saveTeam(data);
+      this.saveTeam(data);
 
     }
   };

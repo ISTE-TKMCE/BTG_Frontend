@@ -49,7 +49,7 @@ function Login({ setToken }) {
 
         {errorMessages && <div className="error">{errorMessages}</div>}
         <div className="input-container">
-          <label>Username </label>
+          <label>User Email </label>
           <input type="text" name="uname" required  onChange={e => setUserName(e.target.value)}/>
           {/* {renderErrorMessage("uname")} */}
         </div>

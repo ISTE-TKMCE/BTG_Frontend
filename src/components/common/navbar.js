@@ -47,8 +47,10 @@ function Navbar() {
 
                   <div
                     onClick={()=>{
+                      console.log(">>>>>>>>>>>>>>>>>",sessionStorage)
                       sessionStorage.clear();
-                      window.location = "/"
+                      window.location('/')
+                      console.log("7777",sessionStorage)
                     }}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md"
                   >
