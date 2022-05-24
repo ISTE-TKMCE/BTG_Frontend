@@ -25,7 +25,8 @@ const saveTeam = (team)=> {
   };
   fetch(BASE_URL+'/users/myteam', requestOptions)
       .then(response => {
-        if(response.status === 200) {window.location="/myteam"};
+        if(response.status === 200) {
+          window.location="/myteam"};
         // response.json()
       })
 }
@@ -67,7 +68,11 @@ export default class Playerchoose extends Component {
         "Authorization": `token ${getToken()}`
       }
     })
-    .then((response) => response.json())
+    .then((response) => {
+      if(response.status === 308) {
+        window.location="/myteam"};
+      response.json()
+    })
     .then(teamR => {
         console.log(teamR)
 
