@@ -2,75 +2,64 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import bg from "../assets/images/bravoLogin.png"
+import PropTypes from 'prop-types';
+import {BASE_URL} from '../constants/urls';
 
 
-function Login() {
+
+
+async function loginUser(credentials) {
+
+  console.log(JSON.stringify(credentials))
+  return fetch(`${BASE_URL}/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+    .then(data => data.json())
+ }
+
+
+function Login({ setToken }) {
   // React States
-  const [errorMessages, setErrorMessages] = useState({});
+  const [errorMessages, setErrorMessages] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
 
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
 
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();
 
-    var { uname, pass } = document.forms[0];
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const token = await loginUser({
+      email:username,
+      password
+    });
+    token.message  ? setErrorMessages(token.message) : setToken(token);
+  }
 
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
 
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
-  };
 
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
-
-  // JSX code for login form
   const renderForm = (
     <div className="form">
       <form onSubmit={handleSubmit}>
+
+        {errorMessages && <div className="error">{errorMessages}</div>}
         <div className="input-container">
           <label>Username </label>
-          <input type="text" name="uname" required />
-          {renderErrorMessage("uname")}
+          <input type="text" name="uname" required  onChange={e => setUserName(e.target.value)}/>
+          {/* {renderErrorMessage("uname")} */}
         </div>
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="pass" required />
-          {renderErrorMessage("pass")}
+          <input type="password" name="pass" required  onChange={e => setPassword(e.target.value)}/>
+          {/* {renderErrorMessage("pass")} */}
         </div>
         <div className="button-container">
-          <input type="submit" />
+          <button type="submit" >Log in</button>
         </div>
       </form>
     </div>
@@ -90,3 +79,7 @@ function Login() {
   );
 }
 export default Login
+
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired
+}

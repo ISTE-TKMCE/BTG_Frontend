@@ -45,12 +45,15 @@ function Navbar() {
                     Contact
                   </Link>
 
-                  <Link
-                    to='/logout'
+                  <div
+                    onClick={()=>{
+                      sessionStorage.clear();
+                      window.location = "/"
+                    }}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md"
                   >
                     Logout
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
