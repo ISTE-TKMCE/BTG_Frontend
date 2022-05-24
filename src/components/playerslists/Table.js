@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import React, { Component } from "react";
 import { render } from "react-dom";
 export default class Table extends Component {
@@ -18,17 +19,13 @@ export default class Table extends Component {
                         </thead>
                         <tbody>
                        
-                        {
-                            this.props.data.map((item,index)=>{
-                            return (
-                                <tr key={index}>
-                                <td>{item.name}</td>
-                                <td>{item.team}</td>
-                                <td>{item.score}</td>
-                                    </tr>
-                            );
-                            })
-                        }
+                        
+                         
+                                <tr key="4">
+                                <td>{data.p1} hello</td>
+                                </tr>
+                        
+                    
                         </tbody>
                     </table>
                     </div>

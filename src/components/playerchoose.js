@@ -69,9 +69,11 @@ export default class Playerchoose extends Component {
       }
     })
     .then((response) => {
+      console.log(response);
       if(response.status === 308) {
-        window.location="/myteam"};
-      response.json()
+        window.location="/myteam"
+      };
+      return response.json()
     })
     .then(teamR => {
         console.log(teamR)
