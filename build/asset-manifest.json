@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.91cac1ac.css",
+    "main.js": "/static/js/main.078b505a.js",
+    "static/media/contact.png": "/static/media/contact.7789d975e04c21e7121b.png",
+    "static/media/playstyle-linear-overlay.png": "/static/media/playstyle-linear-overlay.22957ee28bff3c860743.png",
+    "static/media/bravoLogin.png": "/static/media/bravoLogin.cfda76ad2ede5ee79b90.png",
+    "static/media/kohlibhai.jpg": "/static/media/kohlibhai.175df8f1cfab8834f16a.jpg",
+    "static/media/block2.png": "/static/media/block2.ebed6ddb229c99e7c3ea.png",
+    "static/media/logo.svg": "/static/media/logo.ea35f3bc2257583207aaf27b0ee87c8e.svg",
+    "static/media/ISTElogo.svg": "/static/media/ISTElogo.05d82ac25c6d8ebb4231c6c5063aabe8.svg",
+    "static/media/GujaratTitans.jpg": "/static/media/GujaratTitans.8191160e8d6c1ba8f99a.jpg",
+    "static/media/hestia_logo_white.png": "/static/media/hestia_logo_white.a86988057caaa607e258.png",
+    "static/media/btg.png": "/static/media/btg.7cc21b9bc2ec7688b749.png",
+    "static/media/img.svg": "/static/media/img.59db38fbba3265e1b590a31dd18600f9.svg",
+    "static/media/RajastanRoyals.jpg": "/static/media/RajastanRoyals.ab9a412758860f428600.jpg",
+    "static/media/inst.svg": "/static/media/inst.d6379389d8107a3f33fcfef76449d7b4.svg",
+    "static/media/match.svg": "/static/media/match.e4facddc1867d68427cc6a66f16c8394.svg",
+    "static/media/BTG.svg": "/static/media/BTG.ca74ec97f4241100b0120cee0f9ae2f5.svg",
+    "static/media/instagram.svg": "/static/media/instagram.5ae6e89cbd48528de5aa554aa40cbb5c.svg",
+    "index.html": "/index.html",
+    "static/media/twitter.svg": "/static/media/twitter.736d5ae8c8112dd0bd1a5c3ad5587ffe.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.f2f7d420f8ec14109e65abad03b5f32c.svg",
+    "static/media/facebook.svg": "/static/media/facebook.c6089f12d8bb287d9dcefca86bac3740.svg",
+    "static/media/index.cjs": "/static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "main.91cac1ac.css.map": "/static/css/main.91cac1ac.css.map",
+    "main.078b505a.js.map": "/static/js/main.078b505a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91cac1ac.css",
+    "static/js/main.078b505a.js"
+  ]
+}
