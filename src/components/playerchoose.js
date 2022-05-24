@@ -328,7 +328,7 @@ export default class Playerchoose extends Component {
           Remaining credits: {this.state.credits}
         </p>
         <p className="ml-2 my-3 text-white text-2xl uppercase">
-          Selected credits: {this.state.selectedCredits}
+          Selected credits: {100-this.state.credits}
         </p>
         <div className="flex items-center justify-center mb-6">
           <div className="badge  p-6">
@@ -527,10 +527,10 @@ export default class Playerchoose extends Component {
         <div className="flex items-center justify-center pb-4">
           <button
             type="button"
-            className="btn btn-accent "
+            className="btn btn-warning "
             onClick={this.handleError}
           >
-            SAVE
+            SUBMIT
           </button>
         </div>
       </div>

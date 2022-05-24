@@ -8,7 +8,7 @@ import Leaderboard from "./leaderboard";
 import Login from "./Login";
 import givePoints from "./giveplayerCredits";
 import Chooseplayer from "./playerchoose";
-
+import MyTeam from "./myteam"
 import {
   ABOUT,
   LEADERBOARD,
@@ -45,6 +45,7 @@ function App()  {
             <Route exact path={LEADERBOARD} component={Leaderboard} />
             <Route exact path={ABOUT} component={About} />
             <Route exact path={SELECT_TEAM} component={Chooseplayer} />
+            <Route exact path="/myteam" component={MyTeam} />
             <Route exact path="/givepoints" component={givePoints} />
             <Route exact path={CONTACT} component={Contacts} />
           </Switch>
