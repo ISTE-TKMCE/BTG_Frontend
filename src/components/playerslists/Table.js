@@ -20,8 +20,8 @@ export default class Table extends Component {
                         
                         
                          
-                                <tr ><td>{ this.props.data.p1 }</td></tr>
-                                <tr ><td>{ this.props.data.p2 }</td></tr>
+                                <tr ><td>{ this.props.data.p1 } (C)</td></tr>
+                                <tr ><td>{ this.props.data.p2 } (VC)</td></tr>
                                 <tr ><td>{ this.props.data.p3 }</td></tr>
                                 <tr ><td>{ this.props.data.p4 }</td></tr>
                                 <tr><td>{ this.props.data.p5 }</td></tr>

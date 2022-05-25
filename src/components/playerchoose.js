@@ -286,7 +286,7 @@ export default class Playerchoose extends Component {
     ) {
       this.setState({
         error:
-          "There should be 11 players in your team",
+          "There should be exactly 11 players in your team",
       });
     }
     else {
