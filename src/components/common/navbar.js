@@ -49,7 +49,7 @@ function Navbar() {
                     onClick={()=>{
                       console.log(">>>>>>>>>>>>>>>>>",sessionStorage)
                       sessionStorage.clear();
-                      window.location='/'
+                      window.location='https://btg.istetkmce.in/'
                       console.log("7777",sessionStorage)
                     }}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md"
@@ -152,7 +152,7 @@ function Navbar() {
                     onClick={()=>{
                       console.log(">>>>>>>>>>>>>>>>>",sessionStorage)
                       sessionStorage.clear();
-                      window.location = '/';
+                      window.location = 'https://btg.istetkmce.in/';
                       console.log("7777",sessionStorage)
                     }}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md"
