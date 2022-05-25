@@ -50,7 +50,7 @@ export default class Playerchoose extends Component {
 
   componentDidMount() {
 
-    fetch(BASE_URL + '/createnewteam/RR/GT',
+    fetch(BASE_URL + '/createnewteam/LSG/RCB',
       {
         method: "GET",
         headers: {
