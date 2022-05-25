@@ -5,7 +5,7 @@ export default class Table extends Component {
     render() {
         
         return(
-            <div className="table1 my-5">
+            <div className="table1 my-5 text-xl">
                 <div class="overflow-x-auto">
                     <table className="table-compact w-full">
                        

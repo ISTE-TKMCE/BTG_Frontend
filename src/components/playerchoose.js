@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import kohliImage from "../assets/images/RajastanRoyals.jpg";
-import DhoniImage from "../assets/images/GujaratTitans.jpg";
+import kohliImage from "../assets/images/lsg.jpg";
+import DhoniImage from "../assets/images/rcb.jpg";
 import ImageBlock from "./common/imageblock";
 import Table1 from "./chooseplayercomponents/table1";
 import Navbar from "./common/navbar";
@@ -341,7 +341,7 @@ export default class Playerchoose extends Component {
             <ImageBlock
               url={DhoniImage}
               bordercolor={"#D3961F"}
-              teamname={"GT"}
+              teamname={"RCB"}
             />
           </div>
           <div className="mt-10 flex items-center justify-center font-bold md:text-4xl">
@@ -354,7 +354,7 @@ export default class Playerchoose extends Component {
             <ImageBlock
               url={kohliImage}
               bordercolor={"#E2170A"}
-              teamname={"RR"}
+              teamname={"LSG"}
             />
           </div>
         </div>
