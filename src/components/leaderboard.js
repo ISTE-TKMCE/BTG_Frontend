@@ -23,7 +23,7 @@ const UserRow = (props)=>{
         <p>{props.data.branch}</p>
       </div>
       <div className='w-5'>
-        <p>{props.data.score}</p>
+        <p>{props.data.tscore}</p>
       </div>
     </div>
   )
