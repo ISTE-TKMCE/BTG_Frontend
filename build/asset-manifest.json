@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.91cac1ac.css",
-    "main.js": "/static/js/main.a92ab4d7.js",
+    "main.js": "/static/js/main.a4c5cb4d.js",
     "static/media/contact.png": "/static/media/contact.7789d975e04c21e7121b.png",
     "static/media/playstyle-linear-overlay.png": "/static/media/playstyle-linear-overlay.22957ee28bff3c860743.png",
     "static/media/bravoLogin.png": "/static/media/bravoLogin.cfda76ad2ede5ee79b90.png",
@@ -24,10 +24,10 @@
     "static/media/facebook.svg": "/static/media/facebook.c6089f12d8bb287d9dcefca86bac3740.svg",
     "static/media/index.cjs": "/static/media/index.cd351d7c31d0d3fccf96.cjs",
     "main.91cac1ac.css.map": "/static/css/main.91cac1ac.css.map",
-    "main.a92ab4d7.js.map": "/static/js/main.a92ab4d7.js.map"
+    "main.a4c5cb4d.js.map": "/static/js/main.a4c5cb4d.js.map"
   },
   "entrypoints": [
     "static/css/main.91cac1ac.css",
-    "static/js/main.a92ab4d7.js"
+    "static/js/main.a4c5cb4d.js"
   ]
 }
