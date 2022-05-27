@@ -63,8 +63,8 @@ export default class Playerchoose extends Component {
 
         if (response.status === 308) {
 
-         // alert('Time Up..')
-        // if (true) {
+         alert('Time Up..')
+        if (true) {
         //   this.setState({
         //     re:true
         //   })
@@ -74,7 +74,7 @@ export default class Playerchoose extends Component {
           this.setState({
             re:true
           })
-
+        }
         }
 
         return response.json()
