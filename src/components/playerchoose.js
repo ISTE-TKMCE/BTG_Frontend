@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import kohliImage from "../assets/images/lsg.jpg";
+import kohliImage from "../assets/images/RajastanRoyals.jpg";
 import DhoniImage from "../assets/images/rcb.jpg";
 import ImageBlock from "./common/imageblock";
 import Table1 from "./chooseplayercomponents/table1";
@@ -50,7 +50,7 @@ export default class Playerchoose extends Component {
 
   componentDidMount() {
 
-    fetch(BASE_URL + '/createnewteam/LSG/RCB',
+    fetch(BASE_URL + '/createnewteam/RR/RCB',
       {
         method: "GET",
         headers: {
@@ -59,20 +59,20 @@ export default class Playerchoose extends Component {
       })
       .then((response) => {
         console.log(">>>>>>>>>>>>>>" , response);
-        alert('Time Up..')
+       
 
-        // response.status === 308
+        if (response.status === 308) {
+
+         // alert('Time Up..')
+        // if (true) {
+        //   this.setState({
+        //     re:true
+        //   })
+
 
         
-        if (true) {
           this.setState({
             re:true
-          })
-
-
-        }else{
-          this.setState({
-            re:false
           })
 
         }
@@ -359,7 +359,7 @@ export default class Playerchoose extends Component {
             <ImageBlock
               url={kohliImage}
               bordercolor={"#E2170A"}
-              teamname={"LSG"}
+              teamname={"RR"}
             />
           </div>
         </div>
