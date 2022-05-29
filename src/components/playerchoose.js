@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import kohliImage from "../assets/images/RajastanRoyals.jpg";
-import DhoniImage from "../assets/images/rcb.jpg";
+import kohliImage from "../assets/images/GujaratTitans.jpg";
+import DhoniImage from "../assets/images/RajastanRoyals.jpg";
 import ImageBlock from "./common/imageblock";
 import Table1 from "./chooseplayercomponents/table1";
 import Navbar from "./common/navbar";
@@ -50,7 +50,7 @@ export default class Playerchoose extends Component {
 
   componentDidMount() {
 
-    fetch(BASE_URL + '/createnewteam/RR/RCB',
+    fetch(BASE_URL + '/createnewteam/RR/GT',
       {
         method: "GET",
         headers: {
@@ -59,16 +59,22 @@ export default class Playerchoose extends Component {
       })
       .then((response) => {
         console.log(">>>>>>>>>>>>>>" , response);
+       
 
-        alert('Time Up..')
+        if (response.status === 308) {
 
-        // if (response.status === 308) {
+         // alert('Time Up..')
+        // if (true) {
+        //   this.setState({
+        //     re:true
+        //   })
 
-        if (true) {
+
+        
           this.setState({
             re:true
           })
-        
+
         }
 
         return response.json()
@@ -340,7 +346,7 @@ export default class Playerchoose extends Component {
             <ImageBlock
               url={DhoniImage}
               bordercolor={"#D3961F"}
-              teamname={"RCB"}
+              teamname={"RR"}
             />
           </div>
           <div className="mt-10 flex items-center justify-center font-bold md:text-4xl">
@@ -353,7 +359,7 @@ export default class Playerchoose extends Component {
             <ImageBlock
               url={kohliImage}
               bordercolor={"#E2170A"}
-              teamname={"RR"}
+              teamname={"GT"}
             />
           </div>
         </div>
